@@ -1,0 +1,57 @@
+.theme-selector {
+  display: flex;
+  gap: 8px;
+  background-color: var(--color-bg-base);
+  border: 1px solid var(--color-border);
+  padding: 4px;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.theme-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: none;
+  border: 1px solid transparent;
+  border-radius: 6px;
+  padding: 6px 10px;
+  cursor: pointer;
+  font-family: var(--font-serif);
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--color-text-muted);
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.theme-btn-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: var(--color-border);
+  transition: transform 0.2s ease, background-color 0.25s ease;
+}
+
+/* Individual hover colors matching themes */
+.theme-btn:hover {
+  background-color: var(--color-bg-card);
+  color: var(--color-text-main);
+  border-color: var(--color-border);
+}
+
+.theme-btn:hover .theme-btn-dot {
+  transform: scale(1.2);
+}
+
+/* Active Styling */
+.theme-btn.active {
+  background-color: var(--color-bg-card);
+  border-color: var(--color-border);
+  color: var(--color-text-main);
+  box-shadow: 0 2px 6px var(--color-shadow);
+}
+
+.theme-btn.active .theme-btn-dot {
+  background-color: var(--color-primary);
+  transform: scale(1.2);
+}
