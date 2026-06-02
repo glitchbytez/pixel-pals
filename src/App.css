@@ -1,122 +1,97 @@
-.container {
+.container.washi-card {
   position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  background-color: var(--color-bg-card);
+  border: 1px solid var(--color-border);
+  border-radius: 16px;
+  padding: 32px;
   width: 100%;
-  max-width: 480px;
-  padding: 24px;
-}
-
-/* Glowing ambient background blob */
-.glow-blob {
-  position: absolute;
-  width: 320px;
-  height: 320px;
-  background: var(--text-gradient);
-  filter: blur(90px);
-  opacity: 0.3;
-  border-radius: 50%;
-  z-index: 1;
-  animation: float-ambient 10s ease-in-out infinite alternate;
-  pointer-events: none;
-}
-
-/* Centered Glassmorphic Card */
-.hello-card {
-  position: relative;
-  z-index: 2;
-  background: var(--card-bg);
-  backdrop-filter: blur(24px);
-  -webkit-backdrop-filter: blur(24px);
-  border: 1px solid var(--card-border);
-  padding: 48px 64px;
-  border-radius: 32px;
-  text-align: center;
+  max-width: 400px;
   box-shadow: 
-    0 4px 30px rgba(0, 0, 0, 0.03),
-    inset 0 1px 1px rgba(255, 255, 255, 0.1);
+    0 4px 20px -2px var(--color-shadow),
+    0 2px 6px -1px var(--color-shadow);
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  transition: background-color 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
+  overflow: hidden;
+}
+
+/* Washi paper pattern background texture overlay */
+.container.washi-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.02;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+}
+
+.app-header {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  border-bottom: 1px solid var(--color-border);
+  padding-bottom: 16px;
+}
+
+.jp-title {
+  font-family: var(--font-serif);
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--color-text-main);
+  letter-spacing: 0.05em;
+  margin: 0;
+}
+
+.jp-subtitle {
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin: 0;
+}
+
+.content-body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 160px;
+  background-color: var(--color-bg-base);
+  border-radius: 12px;
+  border: 1px solid var(--color-border);
+  transition: background-color 0.4s ease, border-color 0.4s ease;
+}
+
+.pet-placeholder {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  animation: scale-in 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  gap: 12px;
 }
 
-.hello-title {
-  font-size: 5rem;
-  font-weight: 800;
-  letter-spacing: -0.04em;
-  line-height: 1.1;
-  background: var(--text-gradient);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  margin-bottom: 12px;
-  background-size: 200% auto;
-  animation: text-shine 6s linear infinite;
+.pet-icon {
+  font-size: 3rem;
+  animation: floatIcon 4s infinite ease-in-out;
 }
 
-.subtitle {
-  font-size: 1.125rem;
-  font-weight: 500;
-  color: var(--text-secondary);
-  opacity: 0;
-  animation: fade-in 1s ease-out 0.4s forwards;
-  letter-spacing: -0.01em;
+@keyframes floatIcon {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
 }
 
-/* Keyframes */
-@keyframes float-ambient {
-  0% {
-    transform: translate(-20px, -20px) scale(0.9);
-  }
-  100% {
-    transform: translate(20px, 20px) scale(1.1);
-  }
+.placeholder-text {
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+  margin: 0;
 }
 
-@keyframes scale-in {
-  from {
-    opacity: 0;
-    transform: scale(0.92) translateY(12px);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1) translateY(0);
-  }
+.selector-section {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: center;
 }
 
-@keyframes fade-in {
-  to {
-    opacity: 1;
-  }
-}
-
-@keyframes text-shine {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
-}
-
-/* Responsive adjustments */
-@media (max-width: 480px) {
-  .hello-card {
-    padding: 36px 40px;
-    border-radius: 24px;
-  }
-
-  .hello-title {
-    font-size: 4rem;
-  }
-
-  .subtitle {
-    font-size: 1rem;
-  }
-}

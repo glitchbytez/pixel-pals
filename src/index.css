@@ -1,26 +1,75 @@
-@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;800&display=swap');
-
 :root {
-  --sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
-  --bg-gradient: radial-gradient(circle at 50% 50%, #110e1b 0%, #06050a 100%);
-  --glow-color: rgba(170, 59, 255, 0.15);
-  --card-bg: rgba(255, 255, 255, 0.02);
-  --card-border: rgba(255, 255, 255, 0.07);
-  --text-primary: #ffffff;
-  --text-secondary: #a19fad;
-  --text-gradient: linear-gradient(135deg, #aa3bff 0%, #ff6b95 50%, #00d2ff 100%);
+  --font-serif: 'Noto Serif JP', serif;
+  --font-sans: 'Inter', sans-serif;
+  --font-outfit: 'Outfit', sans-serif;
+
+  /* Default Theme: Spring Garden */
+  --color-bg-base: #FAF8F5;       /* Shiro-paper - Warm rice paper off-white */
+  --color-bg-card: #FFFFFF;       /* Pure white */
+  --color-border: #E8E2D9;        /* Muted sand */
+  --color-text-main: #2C2C2A;     /* Sumi - Charcoal black */
+  --color-text-muted: #7E7C74;    /* Ash gray */
+  --color-primary: #DB5A6B;       /* Kōbai-iro - Plum/Cherry red */
+  --color-primary-light: #FCC9B9; /* Sakura-iro - Soft cherry pink */
+  --color-secondary: #7B8D60;     /* Matcha-iro - Green tea green */
+  --color-secondary-light: #B8D2A0; /* Young sprout green */
+  --color-shadow: rgba(44, 44, 42, 0.04);
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    --bg-gradient: radial-gradient(circle at 50% 50%, #fcfbfe 0%, #ebecf5 100%);
-    --glow-color: rgba(170, 59, 255, 0.08);
-    --card-bg: rgba(255, 255, 255, 0.65);
-    --card-border: rgba(170, 59, 255, 0.12);
-    --text-primary: #12101a;
-    --text-secondary: #6e6b7d;
-    --text-gradient: linear-gradient(135deg, #8b1fff 0%, #e03b67 50%, #00a3cc 100%);
-  }
+/* 1. Spring Sakura & Matcha (春庭 - Spring Garden) */
+[data-theme="spring-garden"] {
+  --color-bg-base: #FAF8F5;
+  --color-bg-card: #FFFFFF;
+  --color-border: #E8E2D9;
+  --color-text-main: #2C2C2A;
+  --color-text-muted: #7E7C74;
+  --color-primary: #DB5A6B;
+  --color-primary-light: #FCC9B9;
+  --color-secondary: #7B8D60;
+  --color-secondary-light: #B8D2A0;
+  --color-shadow: rgba(44, 44, 42, 0.04);
+}
+
+/* 2. Traditional Indigo (藍染 - Aizome) */
+[data-theme="aizome"] {
+  --color-bg-base: #F4F6F9;
+  --color-bg-card: #FFFFFF;
+  --color-border: #D3DBE2;
+  --color-text-main: #1E2A38;
+  --color-text-muted: #566D82;
+  --color-primary: #3B5B75;
+  --color-primary-light: #A2C0D4;
+  --color-secondary: #E5AF55;
+  --color-secondary-light: #F7DCA3;
+  --color-shadow: rgba(30, 42, 56, 0.05);
+}
+
+/* 3. Sunset Twilight (黄昏 - Tasogare) */
+[data-theme="tasogare"] {
+  --color-bg-base: #FAF4EB;
+  --color-bg-card: #FFFFFF;
+  --color-border: #EDDEC9;
+  --color-text-main: #3C2F4D;
+  --color-text-muted: #7D6B88;
+  --color-primary: #C34A47;
+  --color-primary-light: #EC9560;
+  --color-secondary: #E0A96D;
+  --color-secondary-light: #FCEAD2;
+  --color-shadow: rgba(60, 47, 77, 0.05);
+}
+
+/* 4. Forest Bamboo (森林 - Shinrin) */
+[data-theme="shinrin"] {
+  --color-bg-base: #ECE7DC;
+  --color-bg-card: #F5F1E8;
+  --color-border: #D4CDBC;
+  --color-text-main: #232524;
+  --color-text-muted: #626B66;
+  --color-primary: #2B4C3F;
+  --color-primary-light: #65826A;
+  --color-secondary: #9E7E6A;
+  --color-secondary-light: #D4BFA8;
+  --color-shadow: rgba(35, 37, 36, 0.05);
 }
 
 * {
@@ -30,9 +79,9 @@
 }
 
 body {
-  font-family: var(--sans);
-  background: var(--bg-gradient);
-  color: var(--text-primary);
+  font-family: var(--font-sans);
+  background-color: var(--color-bg-base);
+  color: var(--color-text-main);
   min-height: 100vh;
   min-height: 100svh;
   display: flex;
@@ -40,6 +89,7 @@ body {
   justify-content: center;
   overflow: hidden;
   position: relative;
+  transition: background-color 0.4s ease, color 0.4s ease;
 }
 
 #root {
