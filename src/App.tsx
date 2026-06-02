@@ -1,29 +1,32 @@
 import './App.css'
 import { ThemeSelector } from './components/ThemeSelector'
-import { useTheme } from './context/ThemeContext'
 
-function App() {
-  const { theme } = useTheme();
-
+export default function App() {
   return (
-    <div className="container washi-card">
-      <div className="app-header">
-        <h1 className="jp-title">お留守番ペット 🐾</h1>
-        <p className="jp-subtitle">Desk Pet Companion</p>
+    <div className="app-viewport">
+      {/* Decorative vertical seal representing Japanese paper stamps */}
+      <div className="decorative-seal">
+        <span>木漏れ日</span>
       </div>
 
-      <div className="content-body">
-        <div className="pet-placeholder">
-          <span className="pet-icon">🦊</span>
-          <p className="placeholder-text">Theme: {theme}</p>
+      <main className="main-content washi-container">
+        <header className="app-header">
+          <h1 className="jp-title">お留守番ペット</h1>
+          <ThemeSelector />
+        </header>
+
+        <div className="pet-display-section">
+          <div className="pet-placeholder">🐾</div>
         </div>
-      </div>
 
-      <div className="selector-section">
-        <ThemeSelector />
-      </div>
+        <section className="stats-dashboard">
+          <div className="dashboard-placeholder">ステータス (Vitals Engine Pending)</div>
+        </section>
+
+        <footer className="care-controls-dock">
+          <div className="dock-placeholder">お世話 (Care Dock Pending)</div>
+        </footer>
+      </main>
     </div>
   )
 }
-
-export default App
