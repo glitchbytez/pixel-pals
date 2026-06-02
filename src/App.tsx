@@ -1,5 +1,6 @@
 import './App.css'
 import { ThemeSelector } from './components/ThemeSelector'
+import { PetDisplay } from './components/PetDisplay'
 
 export default function App() {
   return (
@@ -15,9 +16,7 @@ export default function App() {
           <ThemeSelector />
         </header>
 
-        <div className="pet-display-section">
-          <div className="pet-placeholder">🐾</div>
-        </div>
+        <PetDisplay mood="idle" />
 
         <section className="stats-dashboard">
           <div className="dashboard-placeholder">ステータス (Vitals Engine Pending)</div>
