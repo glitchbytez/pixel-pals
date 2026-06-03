@@ -33,7 +33,9 @@ export const VitalsProvider: React.FC<{ children: React.ReactNode }> = ({ childr
 
   // Ref to hold exact values for timeout loops
   const statsRef = useRef({ hunger, energy, isSleeping });
-  statsRef.current = { hunger, energy, isSleeping };
+  useEffect(() => {
+    statsRef.current = { hunger, energy, isSleeping };
+  }, [hunger, energy, isSleeping]);
 
   // 1. Load initial state
   useEffect(() => {
