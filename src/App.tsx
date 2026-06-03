@@ -2,6 +2,7 @@ import './App.css'
 import { ThemeSelector } from './components/ThemeSelector'
 import { PetDisplayWrapper } from './components/PetDisplayWrapper'
 import { useVitals } from './context/VitalsContext'
+import { VitalsDashboard } from './components/VitalsDashboard'
 
 export default function App() {
   const { baseMood } = useVitals()
@@ -22,7 +23,7 @@ export default function App() {
         <PetDisplayWrapper baseMood={baseMood} />
 
         <section className="stats-dashboard">
-          <div className="dashboard-placeholder">ステータス (Vitals Engine Pending)</div>
+          <VitalsDashboard />
         </section>
 
         <footer className="care-controls-dock">

@@ -1,0 +1,6 @@
+.vitals-dashboard {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 8px 0;
+}
