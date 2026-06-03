@@ -79,9 +79,8 @@ export const VitalsProvider: React.FC<{ children: React.ReactNode }> = ({ childr
         // Sleep state: Restore energy, increase hunger moderately
         setEnergy((e) => Math.min(100, e + 5));
         setHunger((h) => Math.min(100, h + 1.5));
-        
         // Auto wake up when full energy
-        if (currEnergy >= 100) {
+        if (currEnergy + 5 >= 100) {
           setIsSleeping(false);
         }
       } else {
