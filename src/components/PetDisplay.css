@@ -1,0 +1,69 @@
+.pet-display-wrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 200px;
+  background: radial-gradient(circle at 50% 50%, var(--color-bg-base) 0%, rgba(255,255,255,0) 70%);
+  border-radius: 8px;
+  padding: 16px;
+  overflow: hidden;
+}
+
+.pet-canvas-area {
+  width: 120px;
+  height: 120px;
+  z-index: 2;
+  transition: transform 0.3s ease;
+}
+
+.pet-svg {
+  width: 100%;
+  height: 100%;
+}
+
+/* Grounding Shadow design */
+.pet-shadow {
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: calc(120px * 0.58);
+  height: 8px;
+  background-color: var(--color-text-muted);
+  opacity: 0.15;
+  border-radius: 50%;
+  z-index: 1;
+  animation: shadowPulse 3.5s infinite ease-in-out;
+  transition: width 0.3s ease, bottom 0.3s ease;
+}
+
+/* Idle animation pulses shadow scale */
+@keyframes shadowPulse {
+  0%, 100% {
+    transform: translateX(-50%) scale(1);
+    opacity: 0.15;
+  }
+  50% {
+    transform: translateX(-50%) scale(1.08);
+    opacity: 0.11;
+  }
+}
+
+.pet-shadow.sleeping-shadow {
+  width: calc(120px * 0.71);
+  bottom: 25px;
+  animation: shadowSleep 4s infinite ease-in-out;
+}
+
+@keyframes shadowSleep {
+  0%, 100% {
+    transform: translateX(-50%) scale(1);
+    opacity: 0.1;
+  }
+  50% {
+    transform: translateX(-50%) scale(0.95);
+    opacity: 0.08;
+  }
+}
