@@ -1,0 +1,48 @@
+.zen-gauge-container {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  width: 100%;
+}
+
+.zen-gauge-header {
+  display: flex;
+  align-items: baseline;
+  font-size: 0.85rem;
+}
+
+.gauge-label-jp {
+  font-family: 'Noto Serif JP', serif;
+  font-weight: 700;
+  margin-right: 6px;
+  color: var(--color-text-main);
+}
+
+.gauge-label-en {
+  font-size: 0.75rem;
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  flex-grow: 1;
+}
+
+.gauge-value {
+  font-family: 'Outfit', sans-serif;
+  font-weight: 600;
+  color: var(--color-text-main);
+}
+
+/* Bamboo shoot style progress bar */
+.zen-gauge-track {
+  height: 6px;
+  background-color: var(--color-border);
+  border-radius: 4px;
+  overflow: hidden;
+  position: relative;
+}
+
+.zen-gauge-fill {
+  height: 100%;
+  border-radius: 4px;
+  transition: width 0.8s cubic-bezier(0.25, 0.8, 0.25, 1); /* Soft fluid transition */
+}
