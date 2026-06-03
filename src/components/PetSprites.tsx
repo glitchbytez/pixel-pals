@@ -1,4 +1,5 @@
 import React from 'react';
+import './PetSprites.css';
 
 export type MoodType = 'idle' | 'happy' | 'hungry' | 'tired' | 'sleeping' | 'eating';
 
