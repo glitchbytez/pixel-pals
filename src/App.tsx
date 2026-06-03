@@ -1,8 +1,11 @@
 import './App.css'
 import { ThemeSelector } from './components/ThemeSelector'
 import { PetDisplayWrapper } from './components/PetDisplayWrapper'
+import { useVitals } from './context/VitalsContext'
 
 export default function App() {
+  const { baseMood } = useVitals()
+
   return (
     <div className="app-viewport">
       {/* Decorative vertical seal representing Japanese paper stamps */}
@@ -16,7 +19,7 @@ export default function App() {
           <ThemeSelector />
         </header>
 
-        <PetDisplayWrapper baseMood="idle" />
+        <PetDisplayWrapper baseMood={baseMood} />
 
         <section className="stats-dashboard">
           <div className="dashboard-placeholder">ステータス (Vitals Engine Pending)</div>
