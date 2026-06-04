@@ -3,9 +3,14 @@ import { ThemeSelector } from './components/ThemeSelector'
 import { PetDisplayWrapper } from './components/PetDisplayWrapper'
 import { useVitals } from './context/VitalsContext'
 import { VitalsDashboard } from './components/VitalsDashboard'
+import { CareDock } from './components/CareDock'
 
 export default function App() {
   const { baseMood } = useVitals()
+
+  const handleTriggerInteraction = (action: 'pet' | 'feed') => {
+    console.log('Interaction triggered:', action);
+  };
 
   return (
     <div className="app-viewport">
@@ -27,7 +32,7 @@ export default function App() {
         </section>
 
         <footer className="care-controls-dock">
-          <div className="dock-placeholder">お世話 (Care Dock Pending)</div>
+          <CareDock onTriggerInteraction={handleTriggerInteraction} />
         </footer>
       </main>
     </div>
